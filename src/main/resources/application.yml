@@ -1,0 +1,15 @@
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/locking_db?escapeSyntaxCallMode=callIfNoReturn
+    username: locking_test
+    password: password1
+  liquibase:
+    change-log: classpath:/db/db.changeLog-master.xml
+    enabled: true
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true

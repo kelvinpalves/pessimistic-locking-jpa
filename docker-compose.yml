@@ -1,0 +1,22 @@
+version: '3'
+
+volumes:
+  postgres_data:
+    driver: local
+
+services:
+  locking-test-postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=locking_test
+      - POSTGRES_PASSWORD=password1
+      - POSTGRES_DB=locking_db
+    container_name: locking-updateStatusPending1-postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - locking_network
+
+networks:
+  locking_network:
+    driver: bridge
